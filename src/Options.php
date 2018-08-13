@@ -324,17 +324,31 @@ class Options
     /**
      * Builds a help screen from the available options. You may want to call it from -h or on error
      *
+     * @param null $commandName
+     *
      * @return string
      *
      * @throws Exception
      */
-    public function help()
+    public function help($commandName = null)
     {
         $tf = new TableFormatter($this->colors);
         $text = '';
 
+        $setup = $this->setup;
+        if (!is_null($commandName)) {
+            $newSetup = array();
+            if ($commandName != '') {
+                // $newSetup[''] = $setup['']; // @todo: use this code if you want to show main help at the beginning
+            }
+            if (isset($setup[$commandName])) {
+                $newSetup[$commandName] = $setup[$commandName];
+            }
+            $setup = $newSetup;
+        }
+
         $hascommands = (count($this->setup) > 1);
-        foreach ($this->setup as $command => $config) {
+        foreach ($setup as $command => $config) {
             $hasopts = (bool)$this->setup[$command]['opts'];
             $hasargs = (bool)$this->setup[$command]['args'];
 
