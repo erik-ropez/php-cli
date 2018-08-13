@@ -1,5 +1,5 @@
 {
-  "name": "splitbrain/php-cli",
+  "name": "sudiptochoudhury/php-cli",
   "description": "Easy command line scripts for PHP with opt parsing and color output. No dependencies",
   "keywords": [
     "cli",
@@ -13,8 +13,8 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "Andreas Gohr",
-      "email": "andi@splitbrain.org"
+      "name": "Sudipto Choudhury",
+      "email": "mail@sudipto.net"
     }
   ],
   "require": {
@@ -28,7 +28,7 @@
   },
   "autoload": {
     "psr-4": {
-      "splitbrain\\phpcli\\": "src"
+      "SudiptoChoudhury\\phpcli\\": "src"
     }
   }
 }
