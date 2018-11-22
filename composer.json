@@ -18,7 +18,7 @@
     }
   ],
   "require": {
-    "php": ">=5.3.0"
+    "php": ">=7.1.0"
   },
   "suggest": {
     "psr/log": "Allows you to make the CLI available as PSR-3 logger"
@@ -28,6 +28,7 @@
   },
   "autoload": {
     "psr-4": {
+      "SudiptoChoudhury\\Support\\": "Support",
       "splitbrain\\phpcli\\": "src"
     }
   }

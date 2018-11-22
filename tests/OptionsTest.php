@@ -1,8 +1,8 @@
 <?php
 
-namespace splitbrain\phpcli\tests;
+namespace SudiptoChoudhury\phpcli\tests;
 
-class Options extends \splitbrain\phpcli\Options
+class Options extends \SudiptoChoudhury\phpcli\Options
 {
 
     public $args;

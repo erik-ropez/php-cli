@@ -1,10 +1,10 @@
 <?php
 
-namespace splitbrain\phpcli\tests;
+namespace SudiptoChoudhury\phpcli\tests;
 
-use splitbrain\phpcli\Colors;
+use SudiptoChoudhury\phpcli\Colors;
 
-class TableFormatter extends \splitbrain\phpcli\TableFormatter
+class TableFormatter extends \SudiptoChoudhury\phpcli\TableFormatter
 {
     public function calculateColLengths($columns)
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace splitbrain\phpcli;
+namespace SudiptoChoudhury\phpcli;
 
 use Psr\Log\LoggerInterface;
 

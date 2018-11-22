@@ -2,6 +2,8 @@
 
 PHP-CLI is a simple library that helps with creating nice looking command line scripts.
 
+> A forked from [splitbrain/php-cli](https://github.com/splitbrain/php-cli)
+
 It takes care of
 
 - **option parsing**
@@ -12,13 +14,13 @@ It takes care of
 
 It is lightweight and has **no 3rd party dependencies**.
 
-[![Build Status](https://travis-ci.org/splitbrain/php-cli.svg)](https://travis-ci.org/splitbrain/php-cli)
+[![Build Status](https://travis-ci.org/sudiptochoudhury/php-cli.svg)](https://travis-ci.org/sudiptochoudhury/php-cli)
 
 ## Installation
 
 Use composer:
 
-```php composer.phar require splitbrain/php-cli```
+```php composer.phar require sudiptochoudhury/php-cli```
 
 ## Usage and Examples
 
@@ -28,8 +30,8 @@ Minimal example:
 #!/usr/bin/php
 <?php
 require __DIR__ . '/../vendor/autoload.php';
-use splitbrain\phpcli\CLI;
-use splitbrain\phpcli\Options;
+use sudiptochoudhury\phpcli\CLI;
+use sudiptochoudhury\phpcli\Options;
 
 class Minimal extends CLI
 {
@@ -60,7 +62,7 @@ $cli->run();
 
 The basic usage is simple:
 
-- create a class and ``extend splitbrain\phpcli\CLI``
+- create a class and ``extend sudiptochoudhury\phpcli\CLI``
 - implement the ```setup($options)``` method and register options, arguments, commands and set help texts
     - ``$options->setHelp()`` adds a general description
     - ``$options->registerOption()`` adds an option
@@ -71,17 +73,17 @@ The basic usage is simple:
     - ``$options->getArgs()`` returns the remaining arguments after removing the options
     - ``$options->getCmd()`` returns the sub command the user used
 - instantiate your class and call ```run()``` on it
-
+<!---
 More examples can be found in the examples directory. Please refer to the [API docs](https://splitbrain.github.io/php-cli/)
 for further info.
-
+-->
 ## Exceptions
 
 By default the CLI class registers an exception handler and will print the exception's message to the end user and
 exit the programm with a non-zero exit code. You can disable this behaviour and catch all exceptions yourself by
 passing false to the constructor.
 
-You can use the provided ``splitbrain\phpcli\Exception`` to signal any problems within your main code yourself. The
+You can use the provided ``sudiptochoudhury\phpcli\Exception`` to signal any problems within your main code yourself. The
 exceptions's code will be used as the exit code then.
 
 Stacktraces will be printed on log level `debug`. 
@@ -132,7 +134,7 @@ The table formatter is used for the automatic help screen accessible when callin
 The CLI class is a fully PSR-3 compatible logger (printing colored log data to STDOUT and STDERR). This is useful when
 you call backend code from your CLI that expects a Logger instance to produce any sensible status output while running.
  
-To use this ability simply inherit from `splitbrain\phpcli\PSR3CLI` instead of `splitbrain\phpcli\CLI`, then pass `$this`
+To use this ability simply inherit from `sudiptochoudhury\phpcli\PSR3CLI` instead of `sudiptochoudhury\phpcli\CLI`, then pass `$this`
 as the logger instance. Be sure you have the suggested `psr/log` composer package installed.
 
 ![Screenshot](screenshot2.png)
