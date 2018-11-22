@@ -4,7 +4,7 @@ namespace SudiptoChoudhury\phpcli\tests;
 
 use SudiptoChoudhury\phpcli\Colors;
 
-class TableFormatter extends \SudiptoChoudhury\phpcli\TableFormatter
+class TableFormatter extends \splitbrain\phpcli\TableFormatter
 {
     public function calculateColLengths($columns)
     {

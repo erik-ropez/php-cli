@@ -1,6 +1,6 @@
 <?php
 
-namespace SudiptoChoudhury\phpcli;
+namespace splitbrain\phpcli;
 
 /**
  * Class Exception

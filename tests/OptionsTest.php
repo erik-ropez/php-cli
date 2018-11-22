@@ -2,7 +2,7 @@
 
 namespace SudiptoChoudhury\phpcli\tests;
 
-class Options extends \SudiptoChoudhury\phpcli\Options
+class Options extends \splitbrain\phpcli\Options
 {
 
     public $args;

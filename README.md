@@ -14,7 +14,6 @@ It takes care of
 
 It is lightweight and has **no 3rd party dependencies**.
 
-[![Build Status](https://travis-ci.org/sudiptochoudhury/php-cli.svg)](https://travis-ci.org/sudiptochoudhury/php-cli)
 
 ## Installation
 
@@ -30,8 +29,8 @@ Minimal example:
 #!/usr/bin/php
 <?php
 require __DIR__ . '/../vendor/autoload.php';
-use sudiptochoudhury\phpcli\CLI;
-use sudiptochoudhury\phpcli\Options;
+use splitbrain\phpcli\CLI;
+use splitbrain\phpcli\Options;
 
 class Minimal extends CLI
 {
@@ -62,7 +61,7 @@ $cli->run();
 
 The basic usage is simple:
 
-- create a class and ``extend sudiptochoudhury\phpcli\CLI``
+- create a class and ``extend splitbrain\phpcli\CLI``
 - implement the ```setup($options)``` method and register options, arguments, commands and set help texts
     - ``$options->setHelp()`` adds a general description
     - ``$options->registerOption()`` adds an option
@@ -83,7 +82,7 @@ By default the CLI class registers an exception handler and will print the excep
 exit the programm with a non-zero exit code. You can disable this behaviour and catch all exceptions yourself by
 passing false to the constructor.
 
-You can use the provided ``sudiptochoudhury\phpcli\Exception`` to signal any problems within your main code yourself. The
+You can use the provided ``splitbrain\phpcli\Exception`` to signal any problems within your main code yourself. The
 exceptions's code will be used as the exit code then.
 
 Stacktraces will be printed on log level `debug`. 
@@ -134,7 +133,7 @@ The table formatter is used for the automatic help screen accessible when callin
 The CLI class is a fully PSR-3 compatible logger (printing colored log data to STDOUT and STDERR). This is useful when
 you call backend code from your CLI that expects a Logger instance to produce any sensible status output while running.
  
-To use this ability simply inherit from `sudiptochoudhury\phpcli\PSR3CLI` instead of `sudiptochoudhury\phpcli\CLI`, then pass `$this`
+To use this ability simply inherit from `splitbrain\phpcli\PSR3CLI` instead of `splitbrain\phpcli\CLI`, then pass `$this`
 as the logger instance. Be sure you have the suggested `psr/log` composer package installed.
 
 ![Screenshot](screenshot2.png)
