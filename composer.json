@@ -28,8 +28,8 @@
   },
   "autoload": {
     "psr-4": {
-      "SudiptoChoudhury\\Support\\": "Support",
-      "splitbrain\\phpcli\\": "src"
+      "SudiptoChoudhury\\Support\\": "src/support",
+      "splitbrain\\phpcli\\": "src/cli"
     }
   }
 }
