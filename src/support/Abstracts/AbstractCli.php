@@ -121,7 +121,12 @@ abstract class AbstractCli extends PHPCLI
     protected function registerCommands(Options $options)
     {
         try {
-            $jsonContent = file_get_contents(realpath(static::$rootPath . $this->apiServiceDefPath));
+            $path = realpath(static::$rootPath . $this->apiServiceDefPath);
+            if (!empty($path) && && file_exists($path)) {
+                $jsonContent = file_get_contents($path);
+            } else {
+                $jsonContent = '{}';
+            }
         } catch(\Exception $ex) {
             $jsonContent = '{}';
         }
@@ -302,7 +307,13 @@ abstract class AbstractCli extends PHPCLI
         $configFile = $this->configFile ?? '/cli-api.json';
         $configFile = static::$rootPath . $configFile;
         try {
-            $configData = file_get_contents(realpath($configFile)) ?? '';
+            $path = realpath($configFile);
+            if (!empty($path) && file_exists($path)) {
+                $configData = file_get_contents($path) ?? '';
+            } else {
+                $configData = '{}';
+            }
+
         } catch (\Exception $ex) {
             $configData = '{}';
         }
