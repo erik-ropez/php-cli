@@ -122,7 +122,7 @@ abstract class AbstractCli extends PHPCLI
     {
         try {
             $path = realpath(static::$rootPath . $this->apiServiceDefPath);
-            if (!empty($path) && && file_exists($path)) {
+            if (!empty($path) && file_exists($path)) {
                 $jsonContent = file_get_contents($path);
             } else {
                 $jsonContent = '{}';
