@@ -133,7 +133,7 @@ abstract class AbstractCli extends PHPCLI
 
         $this->apiService = json_decode($jsonContent, true) ?? [];
 
-        foreach ($this->apiService['operations'] as $commandName => $operation) {
+        foreach (($this->apiService['operations'] ?? []) as $commandName => $operation) {
             if (!preg_match('/^_/', $commandName)) {
                 $this->setupCommand($commandName, $operation, $options);
                 $options->registerOption('man', "Show help on this command", 'm',
@@ -320,7 +320,7 @@ abstract class AbstractCli extends PHPCLI
 
         $config = json_decode($configData, true) ?? null;
 
-        $this->config = $config ?? $this->config;
+        $this->config = $config ?? $this->config ?? [];
     }
 
     protected function arraySetDotted(&$array, $key, $value, $default = null)
