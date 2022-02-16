@@ -113,7 +113,6 @@ class Options
             'args' => array(),
             'help' => $help
         );
-
     }
 
     /**
@@ -208,13 +207,13 @@ class Options
             }
 
             // first non-option
-            if ($arg{0} != '-') {
+            if ($arg[0] != '-') {
                 $non_opts = array_merge($non_opts, array_slice($this->args, $i));
                 break;
             }
 
             // long option
-            if (strlen($arg) > 1 && $arg{1} == '-') {
+            if (strlen($arg) > 1 && $arg[1] == '-') {
                 $arg = explode('=', substr($arg, 2), 2);
                 $opt = array_shift($arg);
                 $val = array_shift($arg);
@@ -229,8 +228,10 @@ class Options
                         $val = $this->args[++$i];
                     }
                     if (is_null($val)) {
-                        throw new Exception("Option $opt requires an argument",
-                            Exception::E_OPT_ARG_REQUIRED);
+                        throw new Exception(
+                            "Option $opt requires an argument",
+                            Exception::E_OPT_ARG_REQUIRED
+                        );
                     }
                     $this->options[$opt] = $val;
                 } else {
@@ -255,8 +256,10 @@ class Options
                     $val = $this->args[++$i];
                 }
                 if (is_null($val)) {
-                    throw new Exception("Option $arg requires an argument",
-                        Exception::E_OPT_ARG_REQUIRED);
+                    throw new Exception(
+                        "Option $arg requires an argument",
+                        Exception::E_OPT_ARG_REQUIRED
+                    );
                 }
                 $this->options[$opt] = $val;
             } else {
@@ -338,9 +341,9 @@ class Options
         $setup = $this->setup;
         if (!is_null($commandName)) {
             $newSetup = array();
-            if ($commandName != '') {
+            //if ($commandName != '') {
                 // $newSetup[''] = $setup['']; // @todo: use this code if you want to show main help at the beginning
-            }
+            //}
             if (isset($setup[$commandName])) {
                 $newSetup[$commandName] = $setup[$commandName];
             }
@@ -399,7 +402,6 @@ class Options
                 }
                 $text .= "\n";
                 foreach ($this->setup[$command]['opts'] as $long => $opt) {
-
                     $name = '';
                     if ($opt['short']) {
                         $name .= '-' . $opt['short'];
@@ -481,4 +483,3 @@ class Options
         return $argv;
     }
 }
-
